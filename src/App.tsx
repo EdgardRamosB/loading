@@ -24,48 +24,57 @@ type Product = {
 };
 import { useState } from "react";
 
+/*PRODUCTOS DESTACADOS*/
 const featuredProducts: Product[] = [
-  // tus 4 productos destacados...
+  {
+  id:5,
+  name:"creatina",
+  category: "Suplementos",
+  price: 99.00,
+  image:
+  "/productos/creatina.webp",
+  badge : "30%",
+  },
 ];
 
-
+/*NOVEDADES*/
 const newProducts: Product[] = [
-  {
-    id: 5,
-    name: "Cartera Urban",
-    category: "Ropa",
-    price: 119.9,
-    image:
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80",
-    badge: "NUEVO",
-  },
-  {
-    id: 6,
-    name: "Kit de Cosméticos",
-    category: "Cosméticos",
-    price: 79.9,
-    image:
-      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80",
-    badge: "NUEVO",
-  },
-  {
-    id: 7,
-    name: "Omega 3",
-    category: "Suplementos",
-    price: 99.9,
-    image:
-      "/productos/omega3.webp",
-    badge: "NUEVO",
-  },
-  {
-    id: 8,
-    name: "Zapatillas Street",
-    category: "Zapatillas",
-    price: 179.9,
-    image:
-      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=80",
-    badge: "NUEVO",
-  },
+  // {
+  //   id: 5,
+  //   name: "Cartera Urban",
+  //   category: "Ropa",
+  //   price: 119.9,
+  //   image:
+  //     "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80",
+  //   badge: "NUEVO",
+  // },
+  // {
+  //   id: 6,
+  //   name: "Kit de Cosméticos",
+  //   category: "Cosméticos",
+  //   price: 79.9,
+  //   image:
+  //     "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80",
+  //   badge: "NUEVO",
+  // },
+  // {
+  //   id: 7,
+  //   name: "Omega 3",
+  //   category: "Suplementos",
+  //   price: 99.9,
+  //   image:
+  //     "/productos/omega3.webp",
+  //   badge: "NUEVO",
+  // },
+  // {
+  //   id: 8,
+  //   name: "Zapatillas Street",
+  //   category: "Zapatillas",
+  //   price: 179.9,
+  //   image:
+  //     "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=80",
+  //   badge: "NUEVO",
+  // },
   {
     id: 9,
     name: "Myo-Inositol",
@@ -75,7 +84,7 @@ const newProducts: Product[] = [
       "/productos/myo-inositol.webp",
     badge: "NUEVO",
   },
-    {
+  {
     id: 10,
     name: "Ashwagandha",
     category: "Suplementos",
@@ -84,6 +93,16 @@ const newProducts: Product[] = [
       "/productos/ashwagandha.webp",
     badge: "NUEVO",
   },
+  {
+    id: 11,
+    name: "Creatina",
+    category: "Suplementos",
+    price: 99.99,
+    image:
+      "/productos/creatina.webp",
+    badge: "NUEVO",
+  },
+  
 
 
 ];
@@ -104,26 +123,24 @@ function App() {
 
 
     const products = [
+     {
+     id: 12,
+     name: "True Wireles - Negro",
+     category: "Tecnología",
+     price: 49.99,
+     image:
+       "/productos/truewireles.webp",
+     badge: "30%",
+   },
       {
-        id: 1,
-        name: "Audífonos Bluetooth",
-        category: "Tecnología",
-        price: 89.9,
-        oldPrice: 119.9,
-        image:
-          "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80",
-        badge: "-25%",
-      },
-      {
-        id: 2,
-        name: "Smartwatch Deportivo",
-        category: "Tecnología",
-        price: 129.9,
-        oldPrice: 169.9,
-        image:
-          "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80",
-        badge: "-24%",
-      },
+     id: 13,
+     name: "True Wireles - Blanco",
+     category: "Tecnología",
+     price: 49.99,
+     image:
+       "/productos/trueblanco.webp",
+     badge: "30%",
+   },
       {
         id: 3,
         name: "Zapatillas Urban",
@@ -133,7 +150,7 @@ function App() {
         image:
           "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
         badge: "-25%",
-      },
+   },
       {
         id: 4,
         name: "Perfume Premium",
@@ -143,7 +160,7 @@ function App() {
         image:
           "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80",
         badge: "-23%",
-      },
+  },
     ];
 
   return (
@@ -334,10 +351,11 @@ function App() {
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
 
               {/* TECNOLOGÍA */}
-              <a
-                href="#productos"
-                className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
-              >
+                <a
+                  href="#catalogo"
+                  onClick={() => setSelectedCategory("Tecnología")}
+                  className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
+                >
 
                 <img
                   src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=900&q=80"
@@ -369,10 +387,11 @@ function App() {
 
 
               {/* ROPA */}
-              <a
-                href="#productos"
-                className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
-              >
+                <a
+                  href="#catalogo"
+                  onClick={() => setSelectedCategory("Ropa")}
+                  className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
+                >
 
                 <img
                   src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=80"
@@ -404,10 +423,11 @@ function App() {
 
 
               {/* ZAPATILLAS */}
-              <a
-                href="#productos"
-                className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
-              >
+                <a
+                  href="#catalogo"
+                  onClick={() => setSelectedCategory("Zapatillas")}
+                  className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
+                >
 
                 <img
                   src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
@@ -440,7 +460,8 @@ function App() {
 
               {/* COSMÉTICOS */}
               <a
-                href="#productos"
+                href="#catalogo"
+                onClick={() => setSelectedCategory("Cosméticos")}
                 className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
               >
 
@@ -475,7 +496,8 @@ function App() {
 
               {/* PERFUMES */}
               <a
-                href="#productos"
+                href="#catalogo"
+                onClick={() => setSelectedCategory("Perfumes")}
                 className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
               >
 
@@ -510,7 +532,8 @@ function App() {
 
               {/* SUPLEMENTOS */}
               <a
-                href="#productos"
+                href="#catalogo"
+                onClick={() => setSelectedCategory("Suplementos")}
                 className="group relative h-72 overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 md:h-80"
               >
 
@@ -1086,7 +1109,10 @@ function App() {
 
               <a
                 href="#productos"
-                className="transition hover:text-lime-400"
+                onClick={() =>
+                  setSelectedCategory("Tecnología"
+                  )}
+
               >
                 Productos
               </a>
