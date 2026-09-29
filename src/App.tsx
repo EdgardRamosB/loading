@@ -152,15 +152,38 @@ function App() {
         badge: "-25%",
    },
       {
-        id: 4,
-        name: "Perfume Premium",
+        id: 100,
+        name: "Ghazal Ethereal (Zakat)",
         category: "Perfumes",
-        price: 99.9,
-        oldPrice: 129.9,
+        price: 149.9,
+        oldPrice: 199.9,
         image:
-          "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80",
+          "/productos/zakatethereal.webp",
         badge: "-23%",
   },
+        {
+        id: 101,
+        name: "Le Gemme Rosy (Zakat)",
+        category: "Perfumes",
+        price: 149.9,
+        oldPrice: 179.9,
+        image:
+          "/productos/legemmerosy.webp",
+        badge: "-23%",
+  },
+        {
+        id: 102,
+        name: "Ghazal Edge (Zakat)",
+        category: "Perfumes",
+        price: 179.9,
+        oldPrice: 199.9,
+        image:
+          "/productos/ghazaledge.webp",
+        badge: "-23%",
+  },
+
+
+
     ];
 
   return (
@@ -623,11 +646,11 @@ function App() {
         {/* IMAGEN */}
         <div className="relative aspect-square overflow-hidden bg-zinc-900">
 
-          <img
-            src={product.image}
-            alt={product.name}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-          />
+        <img
+          src={product.image}
+          alt={product.name}
+          className="h-full w-full object-contain p-4 transition duration-700 group-hover:scale-105"
+        />
 
           {/* ETIQUETA */}
           {product.badge && (
