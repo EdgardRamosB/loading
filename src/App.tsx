@@ -27,10 +27,10 @@ import { useState } from "react";
 /*PRODUCTOS DESTACADOS*/
 const featuredProducts: Product[] = [
   {
-  id:5,
+  id:200,
   name:"creatina",
   category: "Suplementos",
-  price: 99.00,
+  price: 129.00,
   image:
   "/productos/creatina.webp",
   badge : "30%",
@@ -94,10 +94,10 @@ const newProducts: Product[] = [
     badge: "NUEVO",
   },
   {
-    id: 11,
+    id: 202,
     name: "Creatina",
     category: "Suplementos",
-    price: 99.99,
+    price: 129.99,
     image:
       "/productos/creatina.webp",
     badge: "NUEVO",
